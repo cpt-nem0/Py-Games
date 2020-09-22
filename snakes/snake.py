@@ -88,6 +88,11 @@ def game_init():
     pygame.display.set_icon(icon)
 
 
+def play_sound():
+    eat_sound = pygame.mixer.Sound('eat.wav')
+    eat_sound.play()
+
+
 def main():
     state = True
     pygame.init()
@@ -114,6 +119,7 @@ def main():
         if snake.getHeadPosition() == food.position:
             snake.length += 1
             snake.score += 1
+            play_sound()
             food.rand_Position()
 
         snake.draw(surface)
